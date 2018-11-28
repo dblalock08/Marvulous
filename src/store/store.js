@@ -1,14 +1,19 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const state = {
   characters: []
 };
 
-export default function createStore(){
+export default function createStore () {
   return new Vuex.Store({
-    state
+    state,
+    getters: {
+      characters: state => {
+        return state.characters;
+      }
+    }
   });
 }
